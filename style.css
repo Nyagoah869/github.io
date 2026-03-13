@@ -1,0 +1,860 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* Navigation */
+nav {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo {
+    color: #f2f5f8;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.8rem;
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 10%;
+    color: #fff;
+    overflow: hidden;
+    background: url('./img/8.jpg') no-repeat center center/cover;
+    animation: bgMove 20s linear infinite alternate;
+}
+
+/* Dark Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Text */
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    animation: fadeSlide 6s ease forwards;
+    margin-bottom: 12px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeSlide 2s ease forwards 1s;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.btn:hover {
+    background: #e65c00;
+}
+
+/* Profile Image */
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image img {
+    width: 300px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 1.5s ease forwards 1s, float 6s ease-in-out infinite 2.5s;
+}
+
+/* Animations */
+@keyframes bgMove {
+    0% {
+        background-position: center top;
+    }
+
+    100% {
+        background-position: center bottom;
+    }
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #fff;
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #ff6600;
+    }
+
+    25% {
+        color: #00c4ff;
+    }
+
+    50% {
+        color: #ff1493;
+    }
+
+    75% {
+        color: #00ff7f;
+    }
+
+    100% {
+        color: #ff6600;
+    }
+}
+
+/* Typing + Name animation */
+#typing {
+    border-right: 2px solid #fff;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#name {
+    font-weight: bold;
+    border-right: 2px solid #fff;
+    padding-right: 5px;
+    animation: blink 0.7s infinite, colorChange 6s infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline;
+}
+
+/* Section Spacing */
+section {
+    scroll-margin-top: 80px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* About Section */
+.about {
+    padding: 80px 10%;
+    margin-bottom: 80px;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 450px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInLeft 1.5s ease forwards;
+    transition: transform 0.4s;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeInRight 1.5s ease forwards 0.5s;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.about-text .btn:hover {
+    background: #e65c00;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Skills Section */
+.skills {
+    background: #2c3e50;
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #ffffff;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.skills-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    flex: 1;
+    min-width: 250px;
+    background: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.skill-card i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff6600;
+    transition: color 0.3s;
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.skill-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 20px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6600, #ff6600);
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out;
+}
+
+.progress-text {
+    position: absolute;
+    top: -22px;
+    right: 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.skill-card:hover {
+    background: #ff6600;
+    color: #fff;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card:hover i,
+.skill-card:hover h3,
+.skill-card:hover p {
+    color: #fff;
+}
+
+/* Education */
+.education {
+    padding: 80px 10%;
+    background: #fff;
+    text-align: center;
+}
+
+.education h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #222;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: #ff6600;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    background: #ff6600;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: -20px;
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -20px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform .3s;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #ff6600;
+}
+
+.timeline-content .timeline-date {
+    font-size: .9rem;
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Projects */
+.projects {
+    background: #f1f5f9;
+    padding: 90px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform .3s, box-shadow .3s;
+    text-align: center;
+    padding: 20px;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    margin: 15px 0 10px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    transition: transform .4s, box-shadow .4s;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card .btn-outline {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.project-card .btn-outline:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+/* Contact */
+.contact {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border .3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.contact-form button {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.contact-info {
+    margin-top: 30px;
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+.social-links a {
+    color: #74b9ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    background: #1a252f;
+    color: #aaa;
+    font-size: .95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 20px 40px;
+        height: auto;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 200px;
+    }
+
+    .skills-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 25px;
+        text-align: left !important;
+    }
+
+    .timeline-item .timeline-icon {
+        left: 0 !important;
+    }
+}
+/* Hamburger default hidden */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #2c3e50;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 15px;
+    display: none; /* hidden by default */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Fix Contact h1 visibility */
+.contact h1,
+.contact h2 {
+  color: #fff;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    /* Replace 'your-background.jpg' with your actual image file name */
+    background: url('https://i.pinimg.com/736x/e0/16/93/e0169341c18063822a917be127b885f6.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+ background-image:no-repeat;
+}
+/* The dark tint layer */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 0.5 is the darkness. Increase to 0.7 for darker. */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2; /* Keeps text on top of the overlay and image */
+    .hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+
+    /* This line fixes the repeat issue permanently */
+    background-image: url('./img/8.jpg') !important; 
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    
+    /* Remove any old background animations that might be causing the jump */
+    animation: none !important;
+}
+
+/* Ensure the overlay covers the whole image area */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Makes the image darker so text is readable */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+}
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+    background:#0f172a;
+}
+
+/* Text Logo */
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:white;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#38bdf8;
+}
